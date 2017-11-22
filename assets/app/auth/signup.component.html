@@ -1,0 +1,58 @@
+<div class="col-md-8 col-md-offset-2">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input
+                    type="text"
+                    id="firstName"
+                    class="form-control"
+
+                    [formControl]="myForm.controls['firstName']"
+                    >
+            <p *ngIf="myForm.controls.firstName.hasError('required') && myForm.controls.firstName.touched"
+               class="ui message help-block">
+                Name is required
+            </p>
+
+            <p *ngIf="myForm.controls.firstName.hasError('invalidChars') && myForm.controls.firstName.touched"
+               class="ui  message help-block" >
+                Name must begin with 123
+            </p>
+
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input
+                    type="text"
+                    id="lastName"
+                    class="form-control"
+                    formControlName="lastName"
+                    [formControl]="myForm.controls['lastName']">
+            <p *ngIf="myForm.controls.lastName.hasError('required') && myForm.controls.lastName.touched"
+               class="ui message help-block">
+                Last name is required
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="email">Mail</label>
+            <input
+                    type="email"
+                    id="email"
+                    class="form-control"
+                    formControlName="email">
+
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input
+                    type="password"
+                    id="password"
+                    class="form-control"
+                    formControlName="password">
+        </div>
+        <button
+                class="btn btn-primary"
+                type="submit"
+                [disabled]="!myForm.valid">Submit</button>
+    </form>
+</div>

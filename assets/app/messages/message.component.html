@@ -1,0 +1,32 @@
+<div class="col-sm-6 col-md-4">
+<article class="panel panel-default">
+
+    <div class="panel-body">
+        {{ message.content }}
+    </div>
+    <footer class="panel-footer">
+        <div class="row">
+            <div class="col-xs-6">
+
+            {{ message.username }}
+            </div>
+            <div class="col-xs-6">
+                <div class="config" *ngIf="belongsToUser()">
+                <div class="row">
+
+
+
+                        <div class="col-xs-6">
+                            <a (click)="onEdit()">Edit</a>
+                        </div>
+                    <div class="col-xs-6">
+                             <a (click)="onDelete()">Delete</a>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</article>
+    </div>
